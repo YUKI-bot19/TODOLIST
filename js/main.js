@@ -3,23 +3,20 @@
 
 {
 
-  const contents = document.getElementById('text');
   const addButton = document.getElementById('add');
   const taskValue = document.getElementById('text');
   const table = document.getElementById('table');
-  console.log(table);
   const tbody = document.createElement('tbody');
 
   table.appendChild(tbody);
 
   const items = [];
 
-  const showArray = items => {
+  const showTasks = items => {
 
     tbody.textContent = '';
 
-    const result = items.map((item, i) => {
-
+    items.forEach((item, i) => {
       const row = tbody.insertRow(-1);
       tbody.appendChild(row);
 
@@ -42,23 +39,21 @@
 
       tableAction.appendChild(workingButton);
       tableAction.appendChild(removeButton);
+
     });
   }
 
   addButton.addEventListener('click', () => {
 
-    const item = {
+    items.push({
       id: items,
       comment: taskValue.value,
-    }
+    });
 
-    const newArr = { ...item };
-    items.push(newArr);
-
+    console.log(items);
     taskValue.value = '';
-
-    showArray(items);
+    showTasks(items);
 
   });
-  
+
 }
