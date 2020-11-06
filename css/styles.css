@@ -1,0 +1,25 @@
+
+@charset "UTF-8";
+
+body {
+  font-family:'Yu Mincho','YuMincho','Yu Mincho','游明朝体', serif;
+  margin: 50px;
+
+}
+
+h1 {
+  font-weight: bold;
+}
+
+th {
+  text-align: left;
+}
+
+button {
+  display: inline-block;
+}
+
+.p-radio-bottom {
+  display: block;
+  margin-bottom: 10px;
+}

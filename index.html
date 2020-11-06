@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>ToDoリスト</title>
+</head>
+
+<body>
+  <h1>ToDoリスト</h1>
+  <!-- <form action="#" method="post"> -->
+  <div class="p-radio-bottom">
+    <input type="radio" name="todo-radio" value="all">
+    <label>すべて</label>
+    <input type="radio" name="todo-radio" value="working">
+    <label>作業中</label>
+    <input type="radio" name="todo-radio" value="done">
+    <label>完了</label>
+  </div>
+
+  <table class="p-table" id="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>コメント</th>
+        <th>状態</th>
+      </tr>
+    </thead>
+  </table>
+
+  <h2>新規タスクの追加</h2>
+
+  <input type="text" id="text">
+  <button id="add">追加</button>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
