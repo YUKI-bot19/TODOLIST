@@ -35,8 +35,8 @@
       todos.splice(targetIndex, 1);
       tbody.textContent = '';
       showTasks(todos);
-      for (let i = targetIndex; i < todos.length; i++) {
-        todos.id = i;
+      for (let idx = targetIndex; idx < todos.length; idx++) {
+        todos.id = idx;
       }
     });
     return deleteButton;
