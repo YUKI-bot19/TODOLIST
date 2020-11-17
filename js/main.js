@@ -25,7 +25,7 @@
       tableAction.appendChild(createDeleteButton(row, todo.id));
     });
   }
-  const createDeleteButton = (tableRecord, id) => {
+  const createDeleteButton = (row, id) => {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = '削除';
     deleteButton.addEventListener('click', () => {
@@ -33,9 +33,10 @@
         return todo.id === id;
       });
       todos.splice(targetIndex, 1);
-      tbody.deleteRow(targetIndex);
-      for (let idx = targetIndex; idx < todos.length; idx++) {
-        todos[idx].id = idx
+      tbody.textContent = '';
+      showTasks(todos);
+      for (let i = targetIndex; i < todos.length; i++) {
+        todos.id = i;
       }
     });
     return deleteButton;
