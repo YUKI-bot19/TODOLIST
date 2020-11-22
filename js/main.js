@@ -20,13 +20,27 @@
       row.appendChild(tableComment);
       row.appendChild(tableAction);
       const workingButton = document.createElement('button');
-      const removeButton = document.createElement('button');
       workingButton.textContent = '作業中';
-      removeButton.textContent = '削除';
       tableAction.appendChild(workingButton);
-      tableAction.appendChild(removeButton);
+      tableAction.appendChild(createDeleteButton(row, todo.id));
     });
   }
+  const createDeleteButton = (row, id) => {
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '削除';
+    deleteButton.addEventListener('click', () => {
+      const targetIndex = todos.findIndex(todo => {
+        return todo.id === id;
+      });
+      todos.splice(targetIndex, 1);
+      tbody.textContent = '';
+      showTasks(todos);
+      for (let idx = targetIndex; idx < todos.length; idx++) {
+        todos.id = idx;
+      }
+    });
+    return deleteButton;
+  };
   addButton.addEventListener('click', () => {
     const todo = ({
       id: todos.length,
