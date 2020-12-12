@@ -33,7 +33,7 @@
     statusButton.addEventListener('click', () => {
       if (todo.status === '作業中') {
         todo.status = '完了';
-        filterTodos()
+        filterTodos();
       } else {
         todo.status = '作業中';
         filterTodos();
@@ -65,7 +65,7 @@
       });
       todos.splice(targetIndex, 1);
       tbody.textContent = '';
-      showTasks(todos);
+      filterTodos();
       for (let idx = targetIndex; idx < todos.length; idx++) {
         todos.id = idx;
       }
