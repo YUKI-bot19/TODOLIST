@@ -7,6 +7,7 @@
   const radioButtonAll = document.getElementById('radio-all-select');
   const radioButtonWorking = document.getElementById('radio-working-select');
   const radioButtonDone = document.getElementById('radio-done-select');
+  const radioButton = document.getElementsByName('radio-name');
   table.appendChild(tbody);
   const todos = [];
   const showTasks = todos => {
@@ -32,7 +33,7 @@
     statusButton.addEventListener('click', () => {
       if (todo.status === '作業中') {
         todo.status = '完了';
-        filterTodos()
+        filterTodos();
       } else {
         todo.status = '作業中';
         filterTodos();
@@ -54,7 +55,7 @@
       });
       return showTasks(doneTodos);
     }
-  }
+  };
   const createDeleteButton = (row, id) => {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = '削除';
@@ -64,13 +65,18 @@
       });
       todos.splice(targetIndex, 1);
       tbody.textContent = '';
-      showTasks(todos);
+      filterTodos();
       for (let idx = targetIndex; idx < todos.length; idx++) {
         todos.id = idx;
       }
     });
     return deleteButton;
   };
+  radioButton.forEach((status, number) => {
+    radioButton[number].addEventListener('click', () => {
+      filterTodos();
+    });
+  });
   addButton.addEventListener('click', () => {
     const todo = ({
       id: todos.length,
